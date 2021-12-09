@@ -1,0 +1,134 @@
+body {
+    font-family: 'Libre Baskerville', serif;
+    background: linear-gradient(90deg ,#166a81 , rgb(201, 198, 198));
+}
+
+#app {
+    display: grid;
+    grid-auto-rows: minmax(90px , auto);
+    grid-template-columns: 1fr;
+    grid-template-areas: "headline" "form" "entry";
+    justify-content: center;
+    width: 330px;
+    margin: 1.5rem auto;
+    font-size: 1rem;
+    border-radius: 5%;
+    box-shadow: .4em .6em .8em rgb(82, 81, 81);
+    color: rgba(29, 18, 75);
+    overflow: hidden;
+}
+
+.headline {
+    display: grid;
+    grid-area: headline;
+    height: 60px;
+    justify-content: center;
+    border-bottom: 2px dashed #a78861;
+    background-color: #a2585c;
+}
+
+h2 {
+    letter-spacing: .15em;
+}
+
+.divForm {
+    display: grid;
+    grid-area: form;
+    margin-bottom: .4rem;
+}
+
+form{
+    display: grid;
+    margin: 0 auto;
+    text-align: center;
+    gap: .7em;
+    font-size: .8rem; 
+}
+
+.entry {
+    background: rgb(123, 116, 122, .98);
+    grid-area: entry;
+    border-top: 2px dashed #a78861;
+    padding: 1rem;
+}
+
+.title{
+    text-align: center;
+}
+
+#entryHolder{
+    margin-top: .7rem;
+    display: grid;
+    gap: .4rem;
+}
+
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block; 
+    margin-bottom: .3rem;
+}
+
+input{
+    display:block;
+    height: 20px;
+}
+ 
+input, textarea{
+    background:#6a4d33db;
+    width: 200px;
+    color: rgba(29, 18, 75);
+    font-size: .8rem;
+    font-family: 'Libre Baskerville', serif;
+    padding: 5px;
+    border: 2px solid #002d42;
+    border-radius: 11%;
+}
+
+button{
+    width: 110px;
+    height: 35px;
+    margin: 0 auto;
+    background: #a2585c;
+    color: rgba(29, 18, 75);
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
+    border: 2px solid #002d42;
+    border-radius: 40%;
+    box-shadow: 2px 4px 5px #444;
+    letter-spacing: .05em;
+    cursor: pointer;
+}
+
+button.invalid {
+    cursor: not-allowed;
+}
+
+ 
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: rgba(29, 18, 75);
+    font-family: 'Libre Baskerville', serif;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: rgba(29, 18, 75);
+    font-family: 'Libre Baskerville', serif;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: rgba(29, 18, 75);
+    font-family: 'Libre Baskerville', serif;
+
+} 
