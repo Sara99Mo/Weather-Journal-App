@@ -29,4 +29,4 @@ If you are interested in testing your code as you go, you can use `tests.js` as 
 
 ### Final Project Interface
 
-![Output](https://github.com/Sara99Mo/Weather-Journal-App/blob/master/img/Weather-journal-app.png)
+![Output](https://github.com/Sara99Mo/Weather-Journal-App/blob/master/website/img/Weather-journal-app.png)
