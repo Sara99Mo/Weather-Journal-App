@@ -1,10 +1,14 @@
 // Personal API Key for OpenWeatherMap API
 const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=490c4fbf34ef83e4f4b4410c1193bcda';
+const apiKey = '&appid=490c4fbf34ef83e4f4b4410c1193bcda&units=metric';
+/*  
+    * &units=imperial is for Fahrenheit.
+    * &units=metric is for Celcius 
+*/
 
 // Create a new date instance dynamically with JS
 let date = new Date();
-let newDate = date.getMonth() + '.' + date.getDate() + '.' + date.getFullYear();
+let newDate = `${date.getMonth()+1}.${date.getDate()}.${date.getFullYear()}`;
 
 
 // Event listener to add function to existing HTML DOM element
@@ -30,7 +34,7 @@ function performAction(e) {
         // Call `postInfo` Async
         .then (function(data){
             // Add data
-            postInfo('/send' , { date: newDate , temp: convertTempToCelsius(data.main.temp) , content: content });
+            postInfo('/send' , { date: newDate , temp: data.main.temp , content: content });
         })
 
         // Call `updateUI` Async
@@ -117,11 +121,11 @@ const updateUI = async () => {
 }
 
 
-// helper function to convert temperature from Kelvin to Celsius
-function convertTempToCelsius(kelvin) {
-    if (kelvin < (0)) {
+/*// helper function to convert temperature from Fahrenheit to Celsius `C = (F - 32) / 1.8`
+function convertTempToCelsius(Fahrenheit) {
+    if (Fahrenheit < (0)) {
         return 'below absolute zero (0 K)';
     } else {
-        return (kelvin - 273.15).toFixed(2);
+        return ((Fahrenheit - 32) / 1.8).toFixed(2);
     }
-}
+} */
