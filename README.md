@@ -26,3 +26,7 @@ This will modify the `server.js` file and the `website/app.js` file. You can see
 
 ### Extras
 If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+
+### Final Project Interface
+
+![Output](https://github.com/harshitagupta30/Weather-Journal-App/blob/master/img/Weather-journal-app.png)

@@ -9,9 +9,11 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas: "headline" "form" "entry";
     justify-content: center;
-    width: 330px;
-    margin: 1.5rem auto;
+    gap: .7em;
+    width: 35vw;
+    margin: 4em auto;
     font-size: 1rem;
+    font-weight: bold;
     border-radius: 5%;
     box-shadow: .4em .6em .8em rgb(82, 81, 81);
     color: rgba(29, 18, 75);
@@ -21,8 +23,9 @@ body {
 .headline {
     display: grid;
     grid-area: headline;
-    height: 60px;
+    align-items: center;
     justify-content: center;
+    padding: 0 .5rem;
     border-bottom: 2px dashed #a78861;
     background-color: #a2585c;
 }
@@ -31,22 +34,19 @@ h2 {
     letter-spacing: .15em;
 }
 
-.divForm {
-    display: grid;
-    grid-area: form;
-    margin-bottom: .4rem;
-}
-
 form{
     display: grid;
-    margin: 0 auto;
+    grid-area: form;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    gap: .7em;
-    font-size: .8rem; 
+    margin-top: 1rem;
+    gap: 1em;
+    font-size: .9rem; 
 }
 
 .entry {
-    background: rgb(123, 116, 122, .98);
+    background: #a2585c;
     grid-area: entry;
     border-top: 2px dashed #a78861;
     padding: 1rem;
@@ -54,6 +54,8 @@ form{
 
 .title{
     text-align: center;
+    letter-spacing: .2em;
+    font-size: 1.3em;
 }
 
 #entryHolder{
@@ -66,19 +68,20 @@ form{
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
     display:block; 
-    margin-bottom: .3rem;
+    margin-bottom: .4rem;
 }
 
 input{
     display:block;
-    height: 20px;
+    height: 6vh;
 }
  
 input, textarea{
     background:#6a4d33db;
-    width: 200px;
+    width: 22vw;
     color: rgba(29, 18, 75);
-    font-size: .8rem;
+    font-size: 1rem;
+    font-weight: bold;
     font-family: 'Libre Baskerville', serif;
     padding: 5px;
     border: 2px solid #002d42;
@@ -86,18 +89,16 @@ input, textarea{
 }
 
 button{
-    width: 110px;
-    height: 35px;
-    margin: 0 auto;
-    background: #a2585c;
-    color: rgba(29, 18, 75);
-    font-size: 1rem;
+    padding: .5rem .8rem;
+    margin: 0 auto 1rem;
+    background: #2c3346;
+    color: rgb(162 88 92);
+    font-size: larger;
     font-weight: bold;
     font-family: 'Libre Baskerville', serif;
     border: 2px solid #002d42;
     border-radius: 40%;
-    box-shadow: 2px 4px 5px #444;
-    letter-spacing: .05em;
+    letter-spacing: .1em;
     cursor: pointer;
 }
 

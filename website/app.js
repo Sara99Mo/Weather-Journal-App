@@ -3,11 +3,9 @@ const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&appid=490c4fbf34ef83e4f4b4410c1193bcda';
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
+let date = new Date();
+let newDate = date.getMonth() + '.' + date.getDate() + '.' + date.getFullYear();
 
-// Get form of 'userInfo' id
-const userInfo = document.getElementById('userInfo');
 
 // Event listener to add function to existing HTML DOM element
 const generate = document.getElementById('generate');
@@ -21,37 +19,48 @@ function performAction(e) {
     const zipCode = document.getElementById('zip').value;
     const content = document.getElementById('feelings').value;
 
-    if (zipCode !== '') {
+    /* Start Check the Value of `zipCode` */
+    if (zipCode !== '') /* Start of True => */{
         //make button valid to click
         generate.classList.remove('invalid');
         
+        // Call `getInfo` Async
         getInfo(baseUrl , zipCode , apiKey)
 
+        // Call `postInfo` Async
         .then (function(data){
+            // Add data
             postInfo('/send' , { date: newDate , temp: convertTempToCelsius(data.main.temp) , content: content });
         })
 
+        // Call `updateUI` Async
         .then (function(){
+            // Update UI
             updateUI()
         })
 
+        // If has any error in zipCode
         .catch (function(error){
             console.log("error" , error);
-            alert('The zip code is invalid. Try again');
+            alert('The zip code is invalid. Try again!');
         });
 
-        userInfo.reset();
+    }/* End of True */ 
+    /* Start of False */ else {
 
-    } else {
-        generate.classList.add('invalid'); 
-    }
+        generate.classList.add('invalid');
+        alert('Enter the zip code!') 
+        
+    }/* End of `ifelse` Condition */
 }
+
 
 /* Function to GET Web API Data*/
 const getInfo = async (baseUrl , zipCode , key) => {
     const res = await fetch(baseUrl + zipCode + key);
 
     try {
+        // Transform into JSON
         const data = await res.json();
         console.log(data);
         return data
@@ -73,10 +82,11 @@ const postInfo = async (url = '' , data = {}) => {
             date: data.date,
             temp: data.temp,
             content: data.content
-        })
+        })// body data type must match "Content-Type" header        
     });
 
     try {
+        // Transform into JSON
         const newData = await response.json();
         console.log(newDate);
         return newData;
