@@ -1,10 +1,7 @@
-* {
-    color: rgba(29, 18, 75);
-}
-
 body {
     font-family: 'Libre Baskerville', serif;
     background: linear-gradient(90deg ,#166a81 , rgb(201, 198, 198));
+    color: rgba(29, 18, 75);
 }
 
 #app {
@@ -53,19 +50,21 @@ form{
     grid-area: entry;
     border-top: 2px dashed #a78861;
     padding: 1rem;
-    font-size: 1.1rem;
 }
 
 .title{
     text-align: center;
     letter-spacing: .2em;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 
 #entryHolder{
-    margin-top: .7rem;
+    margin-top: 1rem;
+    color: #fff;
     display: grid;
-    gap: .4rem;
+    gap: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: .12em;
 }
 
 
