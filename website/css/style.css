@@ -1,74 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Libre Baskerville', serif;
     background: linear-gradient(90deg ,#166a81 , rgb(201, 198, 198));
     color: rgba(29, 18, 75);
 }
 
-#app {
-    display: grid;
-    grid-auto-rows: minmax(90px , auto);
-    grid-template-columns: 1fr;
-    grid-template-areas: "headline" "form" "entry";
-    justify-content: center;
-    gap: .7em;
-    width: 35vw;
-    margin: 4em auto;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5%;
-    box-shadow: .4em .6em .8em rgb(82, 81, 81);
-    overflow: hidden;
+.row>* {
+    margin-top: 3rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 
-.headline {
-    display: grid;
-    grid-area: headline;
-    align-items: center;
-    justify-content: center;
-    padding: 0 .5rem;
+.row {
+    margin: 0 0 3rem;
+}
+
+.card {
+    background: none;
+    box-shadow: 12px 9px 16px 2px;
+}
+
+.row .card .card-header { 
     border-bottom: 2px dashed #a78861;
     background-color: #a2585c;
 }
 
-h2 {
-    letter-spacing: .15em;
+.row .card-body {
+    background: none;
+    display: none;
+    margin: 0 auto;
+    margin-top: 1rem;
+    font-size: .98rem; 
 }
 
-form{
-    display: grid;
-    grid-area: form;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 1rem;
-    gap: 1em;
-    font-size: .98rem; 
+.row .card-body.show {
+    display: block;
 }
 
 .entry {
     background: #a2585c;
-    grid-area: entry;
-    border-top: 2px dashed #a78861;
+    border: 2px dashed #a78861;
+    border-radius: 20%;
     padding: 1rem;
+    margin: 2rem auto;
+    max-width: 50%;
 }
 
-.title{
-    text-align: center;
+.card-title{
     letter-spacing: .2em;
     font-size: 1.4em;
 }
 
-#entryHolder{
-    margin-top: 1rem;
+.entry .card-body{
     color: #fff;
-    display: grid;
-    gap: 1rem;
     font-size: 1.1rem;
     letter-spacing: .12em;
 }
 
+.entry .card-body>div {
+    padding-bottom: 0.3rem;
+}
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
+
+h1,h2 {
+    letter-spacing: .15em;
+}
+
 label{
     display:block; 
     margin-bottom: .4rem;
@@ -76,18 +77,17 @@ label{
 
 input{
     display:block;
-    height: 5vh;
 }
  
 input, textarea{
     background:#6a4d33db;
-    width: 22vw;
     color: #fff;
     letter-spacing: .15em;
     font-size: 1rem;
     font-weight: bold;
     font-family: 'Libre Baskerville', serif;
     padding: .5rem;
+    margin-bottom: 1rem;
     border: 2px solid #002d42;
     border-radius: 11%;
 }
@@ -110,6 +110,9 @@ button.invalid {
     cursor: not-allowed;
 }
 
+a {
+    text-decoration: none;
+}
  
 
 /* Reset style for HTML element on active to have no border*/

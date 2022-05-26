@@ -1,5 +1,5 @@
 // Personal API Key for OpenWeatherMap API
-const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?';
 const apiKey = '&appid=490c4fbf34ef83e4f4b4410c1193bcda&units=metric';
 /*  
     * &units=imperial is for Fahrenheit.
@@ -21,6 +21,7 @@ function performAction(e) {
     
     // Get User input value
     const zipCode = document.getElementById('zip').value;
+    const cuCode = document.getElementById('cu').value;
     const content = document.getElementById('feelings').value;
 
     /* Start Check the Value of `zipCode` */
@@ -29,12 +30,12 @@ function performAction(e) {
         generate.classList.remove('invalid');
         
         // Call `getInfo` Async
-        getInfo(baseUrl , zipCode , apiKey)
+        getInfo(baseUrl, 'zip='+zipCode, cuCode, apiKey)
 
         // Call `postInfo` Async
         .then (function(data){
             // Add data
-            postInfo('/send' , { date: newDate , temp: data.main.temp , content: content });
+            postInfo('/send' , { date: newDate , name:data.name , temp: data.main.temp , content: content });
         })
 
         // Call `updateUI` Async
@@ -55,13 +56,61 @@ function performAction(e) {
         generate.classList.add('invalid');
         alert('Enter the zip code!') 
         
-    }/* End of `ifelse` Condition */
+    }/* End of `else` Condition */
 }
 
 
+// Event listener to add function to existing HTML DOM element
+const generate2 = document.getElementById('generate2');
+generate2.addEventListener('click' , performAction2);
+
+/* Function called by event listener */
+function performAction2(e) {
+    e.preventDefault();
+    
+    // Get User input value
+    const q = document.getElementById('ci-name').value;
+    const cuCode = document.getElementById('cu-code').value;
+    const content = document.getElementById('feelings2').value;
+
+    /* Start Check the Value of `zipCode` */
+    if (q !== '') /* Start of True => */{
+        //make button valid to click
+        generate2.classList.remove('invalid');
+        
+        // Call `getInfo` Async
+        getInfo(baseUrl, 'q='+q, cuCode, apiKey)
+
+        // Call `postInfo` Async
+        .then (function(data){
+            // Add data
+            postInfo('/send' , { date: newDate , name:data.name , temp: data.main.temp , content: content });
+        })
+
+        // Call `updateUI` Async
+        .then (function(){
+            // Update UI
+            updateUI()
+        })
+
+        // If has any error in zipCode
+        .catch (function(error){
+            console.log("error" , error);
+            alert('The zip code is invalid. Try again!');
+        });
+
+    }/* End of True */ 
+    /* Start of False */ else {
+
+        generate.classList.add('invalid');
+        alert('Enter the zip code!') 
+        
+    }/* End of `else` Condition */
+}
+
 /* Function to GET Web API Data*/
-const getInfo = async (baseUrl , zipCode , key) => {
-    const res = await fetch(baseUrl + zipCode + key);
+const getInfo = async (baseUrl, q, cuCode, key) => {
+    const res = await fetch(baseUrl + q + ',' + cuCode + key);
 
     try {
         // Transform into JSON
@@ -84,6 +133,7 @@ const postInfo = async (url = '' , data = {}) => {
         },
         body: JSON.stringify({
             date: data.date,
+            name: data.name,
             temp: data.temp,
             content: data.content
         })// body data type must match "Content-Type" header        
@@ -92,7 +142,6 @@ const postInfo = async (url = '' , data = {}) => {
     try {
         // Transform into JSON
         const newData = await response.json();
-        console.log(newDate);
         return newData;
 
     } catch (error) {
@@ -108,9 +157,10 @@ const updateUI = async () => {
         const allData = await request.json();
         console.log(allData);
         
-        if (allData.date !== undefined && allData.temp !== undefined && allData.content !== undefined) {
+        if (allData.date !== undefined && allData.name !== undefined && allData.temp !== undefined && allData.content !== undefined) {
 
             document.getElementById('date').innerHTML = `Date is: ${allData.date}`;
+            document.getElementById('name').innerHTML = `City is: ${allData.name}`;
             document.getElementById('temp').innerHTML = `Temp is: ${allData.temp}°C`;
             document.getElementById('content').innerHTML = `Feeling is: ${allData.content}`;
         }

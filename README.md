@@ -30,3 +30,12 @@ If you are interested in testing your code as you go, you can use `tests.js` as 
 ### Final Project Interface
 
 ![Output](https://github.com/Sara99Mo/Weather-Journal-App/blob/master/website/img/Weather-journal-app.png)
+
+#### Form Interface Weather use zipCode
+
+![Output](https://github.com/Sara99Mo/Weather-Journal-App/blob/master/website/img/Weather-With-ZipCode.png)
+
+
+#### Form Interface Weather use City name
+
+![Output](https://github.com/Sara99Mo/Weather-Journal-App/blob/master/website/img/Weather-With-Name.png)

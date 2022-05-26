@@ -23,13 +23,13 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Spin up the server
-const port = 2222;
+const port = 8888;
 
 const server = app.listen(port , listening);
 
 // Callback to debug
 function listening() {
-    console.log(`running on localhost: ${port}`);
+    console.log(`Server running on: http://localhost:${port}`);
 }
 
 // Initialize all route with a callback function
@@ -45,6 +45,7 @@ app.post('/send' , sendInfo);
 
 function sendInfo (req , res) {
     projectData['date'] = req.body.date;
+    projectData['name'] = req.body.name;
     projectData['temp'] = req.body.temp;
     projectData['content'] = req.body.content;
     res.send(projectData);

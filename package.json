@@ -1,11 +1,11 @@
 {
-  "scripts": {
-    "start": "node server.js"
-  },
   "name": "weather-journal-app",
   "description": "This project is about working with Web APIs and asynchronous code, creating a web app that uses OpenWeatherMap API to get weather based on user's location, and dynamically update UI.",
   "version": "1.0.0",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

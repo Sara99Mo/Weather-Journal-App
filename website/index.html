@@ -7,54 +7,115 @@
     <title>Weather Journal</title>
     <link rel="shortcut icon" href="#">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style css -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Start of App Div -->
-    <div id="app">
-        <div class="headline">
-            <h2>Weather Journal App</h2>
-        </div>
-
-        <!-- User response -->
-        <!--div class="divForm"-->
-            <form id="userInfo">
-
-                <!-- Zip code-->
-                <div class ="zip">
-                    <label for="zip">Enter Zipcode here</label>
-                    <input type="text" id="zip" placeholder="enter zip code here">
+    <h1 class="text-center mt-5 fw-bold">Weather Journal App</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Start of Card Div -->
+            <div class="card border-secondary text-center" id="app">
+                <div class="card-header headline">
+                    <h2>Weather use Zipcode <a href="#zip" class="me-auto" id="userInfo" aria-expanded="false">&dtrif;</a></h2>
                 </div>
-                
-                <!-- user feeling -->
-                <div class ="feel">
-                    <label for="feelings">How are you feeling today?</label>
-                    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="5"></textarea>
-                </div>
-                
-                <!-- Submit -->
-                <button id="generate" type = "submit"> Generate </button>
+
+                <!-- User response -->
+                <!--Form id="userInfo"-->
+                <div class="card-body userInfo" aria-labelledby="userInfo">
+                    <form>
+                        <!-- Zip code-->
+                        <div class ="zip">
+                            <label for="zip">Enter Zipcode here:-</label>
+                            <input type="text" id="zip" placeholder="enter zip code here.." required title="A zipcode must contain only 5 numbers.">
+                        </div>
+                        
+                        <!-- country code-->
+                        <div class ="cu-code">
+                            <label for="cu">Country code here:-</label>
+                            <input type="text" id="cu" value="us" disabled>
+                        </div> 
+                        
+                        <!-- user feeling -->
+                        <div class ="feel">
+                            <label for="feelings">How are you feeling today?</label>
+                            <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here.." rows="5" required></textarea>
+                        </div>
+                        
+                        <!-- Submit -->
+                        <button id="generate" type = "submit"> Generate </button>
     
-            </form>
-        <!--/div-->
-        <!-- /End of User information Form -->
-
-        <!-- Start of UI entry Div -->
-        <div class="entry">
-            <div class = "title">Weather</div>
-
-            <div id = "entryHolder">
-                <div id = "date"></div> 
-                <div id = "temp"></div>
-                <div id = "content"></div>
+                    </form>
+                </div>
+                <!--/Form-->
+                <!-- /End of User information Form -->
             </div>
+            <!-- /End of App Div -->
         </div>
-        <!-- /End of UI entry Div -->
 
+        <div class="col-md-6">
+            <!-- Start of App Div -->
+            <div class="card border-secondary text-center" id="app">
+                <div class="card-header headline">
+                    <h2>Weather use Name <a href="#name" id="countryInfo" aria-expanded="false">&dtrif;</a></h2>
+                </div>
+
+                <!-- User response -->
+                <!--Form id="userInfo"-->
+                <div class="card-body countryInfo" aria-labelledby="countryInfo">
+                    <form>
+
+                        <!-- City name-->
+                        <div class ="ci-name">
+                            <label for="ci-name">Enter City name here:-</label>
+                            <input type="text" id="ci-name" placeholder="enter city name code here.." required>
+                        </div>
+                        
+                        <!-- country code-->
+                        <div class ="cu-code">
+                            <label for="cu-code">Enter Country code here:-</label>
+                            <input type="text" id="cu-code" placeholder="enter country code code here.." required>
+                        </div>
+
+                        <!-- user feeling -->
+                        <div class ="feel">
+                            <label for="feelings2">How are you feeling today?</label>
+                            <textarea class= "myInput" id="feelings2" placeholder="Enter your feelings here.." rows="5" required></textarea>
+                        </div>
+                        
+                        <!-- Submit -->
+                        <button id="generate2" type = "submit"> Generate </button>
+    
+                    </form>
+                </div>
+                <!--/Form-->
+                <!-- /End of User information Form -->
+            </div>
+            <!-- /End of App Div -->
+        </div>
     </div>
-    <!-- /End of App Div -->
+    
+    <!-- Start of UI entry Div -->
+    <div class="card entry text-center">
+        <div class = "card-title">Weather</div>
+
+        <div class="card-body" id = "entryHolder">
+            <div id = "date"></div> 
+            <div id = "name"></div> 
+            <div id = "temp"></div>
+            <div id = "content"></div>
+        </div>
+    </div>
+    <!-- /End of UI entry Div -->
+
 
     <!-- Script JS -->
-    <script src="app.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- App js -->
+    <script src="js/app.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>
